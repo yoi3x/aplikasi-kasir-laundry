@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.FormTransaksiActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/btnKembali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Kembali"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTransaksiId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="ID Transaksi: #12345" />
+
+        <LinearLayout
+            android:id="@+id/layoutInfoTanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/info_background"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvTanggalMasuk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_calendar_today"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                tools:text="Tanggal Masuk: 07 Juni 2025, 10:33" />
+
+            <TextView
+                android:id="@+id/tvTanggalSelesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/ic_calendar_check"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                tools:text="Estimasi Selesai: 10 Juni 2025, 10:33" />
+        </LinearLayout>
+
+        <TextView style="@style/TextAppearance.Material3.TitleMedium" android:text="Data Pelanggan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Pelanggan">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNamaPelanggan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName|textCapWords"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Nomor HP">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNomorHp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView style="@style/TextAppearance.Material3.TitleMedium" android:text="Detail Laundry" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:suffixText="kg"
+            android:hint="Berat">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBerat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:text="Jenis Layanan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp"/>
+        <RadioGroup
+            android:id="@+id/rgJenisLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/rbBiasa" android:text="Biasa" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+            <RadioButton android:id="@+id/rbSedang" android:text="Sedang" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+            <RadioButton android:id="@+id/rbKilat" android:text="Kilat" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <TextView style="@style/TextAppearance.Material3.TitleMedium" android:text="Pembayaran &amp; Status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutUangMuka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:prefixText="Rp "
+            android:hint="Uang Muka / Panjar (Opsional)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUangMuka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutUpdate"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <TextView
+                android:id="@+id/tvUangMukaSudahBayar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                tools:text="Uang Muka Dibayar: Rp 10.000"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menuStatusProses"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Status Pengerjaan">
+                <AutoCompleteTextView
+                    android:id="@+id/actvStatusProses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:prefixText="Rp "
+                android:hint="Uang Pelunasan">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUangPelunasan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvInfoPembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            tools:text="Sisa Tagihan: Rp 10.000"/>
+
+        <TextView
+            android:id="@+id/tvTotalHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="end"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            tools:text="Total: Rp 90.000"/>
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="12dp"
+            android:text="Simpan Transaksi"/>
+
+        <Button
+            android:id="@+id/btnPrint"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Cetak Struk"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnHapus"
+            android:visibility="gone"
+            tools:visibility="visible"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="?attr/colorError"
+            android:text="Hapus Transaksi"/>
+
+    </LinearLayout>
+</ScrollView>

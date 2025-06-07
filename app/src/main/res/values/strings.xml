@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Kasir Laundry</string>
+    <string name="tambah_transaksi_baru">Tambah Transaksi Baru</string>
+    <string name="riwayat_transaksi">Daftar riwayat transaksi</string>
+</resources>
